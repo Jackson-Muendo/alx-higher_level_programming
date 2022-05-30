@@ -1,4 +1,2 @@
 #!/bin/bash
-echo "Compiling $PYFILE ..."
-python3.4 -c "import py_compile
-py_compile.compile(\"$PYFILE\",\"$PYFILE\" + \"c\")"
+python3 -m compileall -b "$PYFILE"
