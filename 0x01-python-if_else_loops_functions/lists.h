@@ -6,12 +6,12 @@
  * @n: integer
  * @next: points to the next node
  *
- * Description: singly linked list node structure
+ * Description: singly linked list node structures
  *
  */
 typedef struct listint_s
 {
-    int n;
+	int n;
     struct listint_s *next;
 } listint_t;
 
