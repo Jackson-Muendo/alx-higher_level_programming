@@ -1,49 +1,57 @@
 #include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * insert_node - inserts a new node
- * at a given position.
- * @head: head of a list.
- * @number: index of the list where the new node is
- * added.
- * Return: the address of the new node, or NULL if it
- * failed.
+ * insert_node - insert a node in sorted linked list.
+ * @head: head of the list.
+ * @number: data of newnode.
+ * Return: position of newnode.
  */
+
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *new;
-	listint_t *h;
-	listint_t *h_prev;
+	listint_t *newnode, *tmp;
 
-	h = *head;
-	new = malloc(sizeof(listint_t));
-
-	if (new == NULL)
+	if (head == NULL)
 		return (NULL);
-
-	while (h != NULL)
-	{
-		if (h->n > number)
-			break;
-		h_prev = h;
-		h = h->next;
-	}
-
-	new->n = number;
-
+	newnode = malloc(sizeof(listint_t));
+	if (newnode == NULL)
+		return (NULL);
+	newnode->n = number;
 	if (*head == NULL)
 	{
-		new->next = NULL;
-		*head = new;
+		newnode->next = *head;
+		*head = newnode;
+		return (newnode);
+	}
+	tmp = *head;
+	if (number < tmp->n)
+	{
+		newnode->next = *head;
+		*head = newnode;
+		return (newnode);
+	}
+	while (tmp->next)
+	{
+		if (tmp->next->n <= number)
+		{
+			tmp = tmp->next;
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (tmp->next == NULL)
+	{
+		newnode->next = NULL;
+		tmp->next = newnode;
 	}
 	else
 	{
-		new->next = h;
-		if (h == *head)
-			*head = new;
-		else
-			h_prev->next = new;
+		newnode->next = tmp->next;
+		tmp->next = newnode;
 	}
-
-	return (new);
+	return (newnode);
 }
