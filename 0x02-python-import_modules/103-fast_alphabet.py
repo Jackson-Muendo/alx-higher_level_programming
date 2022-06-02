@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-import fast_alphabet_103
+from my_alpha import result
+print(result)
