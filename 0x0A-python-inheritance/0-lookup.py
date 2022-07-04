@@ -1,27 +1,9 @@
 #!/usr/bin/python3
-
-'''
-Docstring goes here
-'''
+# 0-lookup.py
+# Muendo Jackson <jackmwexh1225@gmail.com>
+"""Defines an object attribute lookup function."""
 
 
 def lookup(obj):
-    ''' lookup fn '''
-    return dir(obj)
-
-
-if __name__ == '__main__':
-    lookup = __import__('0-lookup').lookup
-
-    class MyClass1(object):
-        pass
-
-    class MyClass2(object):
-        my_attr1 = 3
-
-        def my_meth(self):
-            pass
-
-    print(lookup(MyClass1))
-    print(lookup(MyClass2))
-    print(lookup(int))
+    """Return a list of an object's available attributes."""
+    return (dir(obj))
