@@ -21,4 +21,4 @@ def pascal_triangle(n):
     for i in range(n):
         pTri.append(t_row)
         t_row = [l+r for l, r in zip(t_row + temp_l, temp_l + t_row)]
-    return pTri
+    return 
