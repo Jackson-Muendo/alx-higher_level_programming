@@ -1,4 +1,4 @@
--- List all genres from 'hbtn_0d_tvshows' and display number of shows linked to each
+-- Lists all genres from 'hbtn_0d_tvshows' and display number of shows linked to each
 -- Each record should display tv_genres.name, number of shows
 -- Don't display a genre that doesn't have any shows linked
 -- Results must be sorted descending order by number of shows linked
